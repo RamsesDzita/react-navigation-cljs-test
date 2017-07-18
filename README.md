@@ -83,7 +83,7 @@ Open another windows an run this command :
 
  
 
- 
+Note: Make sure you run this command in your project directory.
 
 License
 -------
