@@ -76,12 +76,13 @@
 
 
 (def LoginStack (stack-navigator {:Login1  {:screen (stack-screen login/login1 login/dynamic-navigationOptions)}
-                                  :Loading {:screen (stack-screen login/loading {:header nil})}}))
-(def HomeStack (stack-navigator {:Home        {:screen (stack-screen home {:title "Home"})}
+                                  :Loading {:screen (stack-screen login/loading {:header nil})}
+                                  :placeholder {:screen (stack-screen placeholder {:title "Placeholder"})}}))
+(def HomeStack (stack-navigator {:Home        {:screen (stack-screen home {:header nil})}
                                  :Placeholder {:screen (stack-screen placeholder {:title "Placeholder"})}}))
-(def SearchStack (stack-navigator {:Search {:screen (stack-screen search {:title "Search"})}}))
+(def SearchStack (stack-navigator {:Search {:screen (stack-screen search {:header nil})}}))
 
-(def navbar-marginTop (if (= (aget Platform "OS") "android") 24 0))
+(def navbar-marginTop (if (= (aget Platform "OS") "android") 0 0))
 (def Tabs (tab-navigator {:HomeTab   {:path   "home"
                                       :screen (tab-screen HomeStack home-tabBar)}
                           :SearchTab {:path   "search"

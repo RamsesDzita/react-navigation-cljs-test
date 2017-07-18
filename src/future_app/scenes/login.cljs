@@ -2,6 +2,7 @@
   (:require [future-app.react-requires :refer [ActivityIndicator Platform Button TouchableOpacity InteractionManager View ScrollView Text TouchableHighlight]]
             [cljs-react-navigation.re-frame :refer [stack-navigator tab-navigator stack-screen tab-screen router]]
             [reagent.core :as r]
+            [future-app.routing :refer [placeholder]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]))
 
 (def static-navigationOptions {:headerTitle "Login"
@@ -26,7 +27,12 @@
        [:> Button {:style   {:fontSize 17}
                    :onPress #(do (dispatch [:login])
                                  (navigate "Loading"))
-                   :title   "Click to Login!"}]])))
+                   :title   "Click to Login!"}]
+
+       [:> Button {:style   {:fontSize 17
+                             :marginTop 5}
+                   :onPress #(navigate "placeholder")
+                   :title   "Click here"}]])))
 
 (defn loading [props]
   (fn [props]
